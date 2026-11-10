@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Video Downloader</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="card">
+    <h1>YouTube <span>Downloader</span></h1>
+    <p class="subtitle">Paste a video link, choose a quality, and download.</p>
+
+    <label for="url">Video link</label>
+    <div class="row">
+      <input type="url" id="url" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off">
+      <button id="checkBtn" class="secondary">Check</button>
+    </div>
+
+    <!-- shown after the link is checked -->
+    <section id="options" class="hidden">
+      <div class="preview">
+        <img id="thumb" alt="Video thumbnail">
+        <div>
+          <p id="title" class="video-title"></p>
+          <p id="meta" class="video-meta"></p>
+        </div>
+      </div>
+
+      <label for="quality">Quality</label>
+      <select id="quality"></select>
+
+      <button id="downloadBtn">Download</button>
+    </section>
+
+    <!-- shown while downloading -->
+    <section id="progressBox" class="hidden">
+      <div class="progress"><div id="bar" class="bar"></div></div>
+      <div class="progress-info">
+        <span id="percent">0%</span>
+        <span id="details"></span>
+      </div>
+    </section>
+
+    <p id="status" class="status"></p>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
